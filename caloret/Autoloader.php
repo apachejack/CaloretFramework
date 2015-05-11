@@ -12,7 +12,7 @@ class Autoloader {
     		break;
 
     		case self::esConexionBD($nombreClase): 
-    			$dir = __DIR__."/Db/";
+    			$dir = __DIR__."/../lib/Db/";
     		break;
     	}
 
