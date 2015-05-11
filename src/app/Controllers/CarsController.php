@@ -1,5 +1,7 @@
 <?php
-class CarsController extends CaloretController{
+use \Caloret\Controller;
+
+class CarsController extends Controller{
 
 	public function bmwSearchAction(){
 		$bmw = new BmwModel();

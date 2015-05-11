@@ -1,5 +1,7 @@
 <?php
-class HelloController extends CaloretController{
+use \Caloret\Controller;
+
+class HelloController extends Controller{
 
 	public function helloWorld(){
 		$this->printJson(["alertMsg" => "Hola Iván!"]);

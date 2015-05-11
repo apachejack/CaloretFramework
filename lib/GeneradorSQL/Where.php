@@ -1,7 +1,10 @@
 <?php
+namespace Lib\GeneradorSQL;
+use Lib\Db\DB;
+
 /* SÓLO PERMITE COMBINAR FILTROS WHERE MEDIANTE AND */
 
-class GeneradorWhere{
+class Where{
 	protected $comparadores = [
 		"LIKE" => "string", 
 		"IN" => "array", 

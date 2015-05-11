@@ -1,5 +1,7 @@
 <?php
-class GeneradorSelect extends Generador{
+namespace Lib\GeneradorSQL;
+
+class Select extends Generador{
 	protected $campos_seleccionados = array();
 
 	public function __construct(array $campos_seleccionados, $tabla, array $filtros_where){
@@ -30,7 +32,7 @@ class GeneradorSelect extends Generador{
 		$tabla = $this->obtenerNombreTabla();
 
 		try{
-			$where = ( new GeneradorWhere($this->obtenerFiltrosWhere()) )->generarSQL();
+			$where = ( new Where($this->obtenerFiltrosWhere()) )->generarSQL();
 		}
 		catch(\Exception $e){
 			die($e->getMessage());

@@ -1,5 +1,7 @@
 <?php
-class CaloretResponse{
+namespace Caloret;
+
+class Response{
 	protected static $code = null;
 	protected static $content = null;
 	protected static $headers = [];

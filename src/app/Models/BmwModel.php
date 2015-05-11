@@ -1,5 +1,7 @@
 <?php
-class BmwModel{
+use Caloret\Model;
+
+class BmwModel extends Model{
 
 	public function getAll(){
 		
@@ -11,7 +13,7 @@ class BmwModel{
 			)
 		);
 
-		return DB::filter($campos, "coches", $filtros);
+		return $this->filterDb($campos, "coches", $filtros);
 
 	}
 }

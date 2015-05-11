@@ -1,5 +1,7 @@
 <?php
-class CaloretTemplating{
+namespace Caloret;
+
+class Templating{
 
 	protected static function getPathTemplates(){
 		return __DIR__."/../src/app/templates/";

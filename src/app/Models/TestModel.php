@@ -1,5 +1,7 @@
 <?php
-class TestModel{
+use Caloret\Model;
+
+class TestModel extends Model{
 
 	public function getCars(){
 		
@@ -14,7 +16,7 @@ class TestModel{
 			)
 		);
 
-		return DB::filter($campos, "coches", $filtros);
+		return $this->filterDb($campos, "coches", $filtros);
 
 	}
 }

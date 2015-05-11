@@ -1,4 +1,6 @@
 <?php
+namespace Caloret;
+
 class Autoloader {
     static public function loader($nombreClase){
 
@@ -42,6 +44,10 @@ class Autoloader {
     static protected function esConexionBD($nombreClase){
     	return ($nombreClase == "DB");
     }
+
+    static public function start(){
+        spl_autoload_register("self::loader");
+    }
 }
 
-spl_autoload_register('Autoloader::loader');
+Autoloader::start();

@@ -1,4 +1,6 @@
 <?php
+namespace Lib\GeneradorSQL;
+
 abstract class Generador{
 	protected $tabla = null;
 	protected $filtros_where = [];

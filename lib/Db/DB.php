@@ -1,4 +1,8 @@
 <?php
+namespace Lib\Db;
+
+use Lib\GeneradorSQL\Select;
+
 class DB{
 	static private $DBH = null;
 
@@ -40,11 +44,7 @@ class DB{
 
 	public static function filter(array $campos, $tabla, array $filtros){
 
-		require_once(__DIR__."/GeneradorSQL/Generador.php");
-		require_once(__DIR__."/GeneradorSQL/GeneradorWhere.php");
-		require_once(__DIR__."/GeneradorSQL/GeneradorSelect.php");
-
-		$Select = new GeneradorSelect($campos, $tabla, $filtros);
+		$Select = new Select($campos, $tabla, $filtros);
 
 		$query = $Select->generarSQL();
 

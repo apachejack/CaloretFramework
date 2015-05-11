@@ -1,4 +1,6 @@
 <?php
+use Caloret\Response;
+
 /* 
 Obviamente se podría hacer un router menos primitivo jugando con .htaccess
 para hacer un controlador frontal elegante. 
@@ -14,14 +16,14 @@ switch(true){
 		$methodName = $_GET["m"];
 
 		if(!class_exists($controllerName)){
-			CaloretResponse::set("El controlador no existe", 404);
+			Response::set("El controlador no existe", 404);
 		}
 		else{
 			$Controller = new $controllerName();
 		}
 
 		if(!method_exists($Controller, $methodName)){
-			CaloretResponse::set("El método no existe", 404);
+			Response::set("El método no existe", 404);
 		}
 		else{
 			$Controller->$methodName();
@@ -35,9 +37,9 @@ switch(true){
 	break;
 
 	default:
-		CaloretResponse::set("Error 404", 404);
+		Response::set("Error 404", 404);
 	break;
 
 }
 
-CaloretResponse::get();
+Response::get();
