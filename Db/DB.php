@@ -1,6 +1,4 @@
 <?php
-namespace Lib\Db;
-
 use Lib\GeneradorSQL\Select;
 
 class DB{

@@ -1,6 +1,5 @@
 <?php
 namespace Lib\GeneradorSQL;
-use Lib\Db\DB;
 
 /* SÓLO PERMITE COMBINAR FILTROS WHERE MEDIANTE AND */
 
@@ -78,7 +77,7 @@ class Where{
 	}
 
 	protected function sanearValor($valor){
-		return DB::get()->quote($valor);
+		return \DB::get()->quote($valor);
 	}
 
 	protected function validarFiltros(){

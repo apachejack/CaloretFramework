@@ -17,9 +17,8 @@ class Autoloader {
     			$dir = __DIR__."/../src/app/Controllers/";
     		break;
 
-
     		case $this->esConexionBD($nombreClase): 
-    			$dir = __DIR__."/../lib/Db/";
+    			$dir = __DIR__."/../Db/";
     		break;
 
     	}
