@@ -2,20 +2,26 @@
 namespace Caloret;
 
 class Autoloader {
-    static public function loader($nombreClase){
+    public function __construct(){
+        spl_autoload_register(array($this, "loader"));
+    }
+
+    protected function loader($nombreClase){
 
     	switch(true){
-    		case self::esModelo($nombreClase):
+    		case $this->esModelo($nombreClase):
     			$dir = __DIR__."/../src/app/Models/";
     		break;
 
-    		case self::esControlador($nombreClase):
+    		case $this->esControlador($nombreClase):
     			$dir = __DIR__."/../src/app/Controllers/";
     		break;
 
-    		case self::esConexionBD($nombreClase): 
+
+    		case $this->esConexionBD($nombreClase): 
     			$dir = __DIR__."/../lib/Db/";
     		break;
+
     	}
 
         $ruta_archivo = $dir . $nombreClase . ".php";
@@ -33,19 +39,15 @@ class Autoloader {
         return false;
     }
 
-    static protected function esModelo($nombreClase){
+    protected function esModelo($nombreClase){
     	return preg_match("/Model$/", $nombreClase);
     }
 
-    static protected function esControlador($nombreClase){
+    protected function esControlador($nombreClase){
     	return preg_match("/Controller$/", $nombreClase);
     }
 
-    static protected function esConexionBD($nombreClase){
+    protected function esConexionBD($nombreClase){
     	return ($nombreClase == "DB");
-    }
-
-    static public function start(){
-        spl_autoload_register("self::loader");
     }
 }
