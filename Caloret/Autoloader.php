@@ -49,5 +49,3 @@ class Autoloader {
         spl_autoload_register("self::loader");
     }
 }
-
-Autoloader::start();
